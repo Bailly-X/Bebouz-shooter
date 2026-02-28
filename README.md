@@ -40,8 +40,7 @@ Defeated enemies leave **permanent blood splatters** on the ground, with dynamic
 
 ## ⬇️ Download & Play
 
-- **Play in browser / Download on Itch.io**: https://itch.io/XXXX *(replace with your link)*  
-- **Latest PC build (GitHub Releases)**: [Releases](../../releases) *(your zip should be attached there, e.g. `Bebouz-Shooter.zip`)*
+- **Play in browser / Download on Itch.io**: https://el-freezou.itch.io/bebouz-shooter 
 
 ---
 

@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhmkl1n1r25be"]
+
+[ext_resource type="Script" uid="uid://cvuwqh12kxrkr" path="res://script/dasher.gd" id="1_jusnu"]
+[ext_resource type="Texture2D" uid="uid://fmwggywy577l" path="res://assets/wolf_black_full.png" id="2_mwn2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rhhe"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xpgo"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(320, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qthgw"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6wpt"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80jty"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51gur"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p8w8"]
+atlas = ExtResource("2_mwn2h")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvetp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rhhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xpgo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qthgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6wpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80jty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51gur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p8w8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aclov"]
+size = Vector2(40, 40)
+
+[node name="Dasher" type="CharacterBody2D" groups=["enemy"]]
+z_index = 1
+script = ExtResource("1_jusnu")
+
+[node name="ColorRect" type="ColorRect" parent="." groups=["enemy"]]
+visible = false
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(1, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11.05)
+scale = Vector2(2.065, 2.065)
+sprite_frames = SubResource("SpriteFrames_kvetp")
+animation = &"idle"
+frame_progress = 0.411599
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aclov")

@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci2wj1y7c10vd"]
+
+[ext_resource type="Script" uid="uid://b5348px12qg2y" path="res://script/zombie.gd" id="1_jeayq"]
+[ext_resource type="Texture2D" uid="uid://bpsn7xxsvxtne" path="res://assets/Character-and-Zombie.png" id="2_tet0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq6p0"]
+size = Vector2(40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wibt"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(0, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wufa4"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(48, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vboas"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(96, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hm1a"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(144, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ep7w"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(192, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2dmd"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(240, 120, 48, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g15af"]
+atlas = ExtResource("2_tet0w")
+region = Rect2(288, 120, 48, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg1vp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wibt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wufa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vboas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hm1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ep7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2dmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g15af")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="Zombie" type="CharacterBody2D" groups=["enemy"]]
+z_index = 1
+script = ExtResource("1_jeayq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.0352941, 0.415686, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cq6p0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.37, 2.37)
+sprite_frames = SubResource("SpriteFrames_xg1vp")
+animation = &"run"
+frame_progress = 0.0222983

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://swysoj1n3tkf"]
+
+[ext_resource type="Script" uid="uid://bbmxyrrt2ol3i" path="res://script/upgrade(fire_rate).gd" id="1_fjne2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnsw5"]
+size = Vector2(30, 30)
+
+[node name="Upgrade(fire-rate)" type="Area2D"]
+z_index = 1
+script = ExtResource("1_fjne2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+color = Color(1, 1, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pnsw5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
